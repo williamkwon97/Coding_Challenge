@@ -5,13 +5,18 @@ class TreeNode(object):
         self.right = None
 
 
-def closest_value(root, target):
-    a = root.val
-    kid = root.left if target < a else root.right
-    if not kid:
-        return a
-    b = closest_value(kid, target)
-    return min((a, b), key=lambda x: abs(target - x))
+def closestValue(root, target):
+    # write your code here
+    closest = root.val
+
+    while root:
+        closest = root.val if abs(root.val - target) < abs(closest -
+                                                           target) else closest
+        if target > root.val:
+            root = root.right
+        else:
+            root = root.left
+    return closest
 
 
 root = TreeNode(8)
@@ -24,5 +29,5 @@ root.left.right.right = TreeNode(7)
 root.right.right = TreeNode(24)
 root.right.right.left = TreeNode(22)
 
-result = closest_value(root, 19)
+result = closestValue(root, 19)
 print(result)
