@@ -8,8 +8,10 @@ class TreeNode(object):
 def closestValue(root, target):
     # write your code here
     closest = root.val
+    print("closest-", closest)
 
     while root:
+        print("root.val-", root.val)
         closest = root.val if abs(root.val - target) < abs(closest -
                                                            target) else closest
         if target > root.val:

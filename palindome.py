@@ -1,0 +1,3 @@
+lst = ['bb', 'jhj', 'n3', 'ih', 'fc']
+palindromes = [item == item[::-1] for item in lst]
+print(palindromes)
